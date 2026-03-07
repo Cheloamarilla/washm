@@ -220,7 +220,7 @@ function createPremiumCard(lavado, index) {
         : '<li class="font-body font-normal text-sm">Servicio premium completo</li>';
     
     return `
-        <div class="group relative overflow-hidden rounded-3xl min-w-[calc(100vw-2rem)] w-[calc(100vw-2rem)] sm:min-w-[400px] sm:w-[400px] md:min-w-[500px] md:w-[500px] h-[350px] flex-shrink-0 snap-start" id="${cardId}">
+        <div class="group relative overflow-hidden rounded-3xl min-w-[85vw] w-[85vw] sm:min-w-[400px] sm:w-[400px] md:min-w-[500px] md:w-[500px] h-[350px] flex-shrink-0 snap-start" id="${cardId}">
             <img class="absolute inset-0 w-full h-full object-cover transition-all duration-500 premium-img" 
                  id="${cardId}-img"
                  src="${lavado.imagen}" 

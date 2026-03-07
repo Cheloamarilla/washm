@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>WASH MOTORS | Lavadero Móvil Premium</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0066F6",
+                        "black": "#000000",
+                        "gray": "#808080",
+                        "white": "#FFFFFF",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#000000",
+                        "whatsapp": "#25D366"
+                    },
+                    fontFamily: {
+                        "display": ["Anja Eliane", "Montserrat", "Helvetica", "Arial", "sans-serif"],
+                        "title": ["Anja Eliane", "Montserrat", "Helvetica", "Arial", "sans-serif"],
+                        "subtitle": ["Helvetica", "Arial", "sans-serif"],
+                        "body": ["Helvetica", "Arial", "sans-serif"],
+                        "support": ["Montserrat", "Helvetica", "Arial", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "2xl": "3.5rem",
+                        "3xl": "4rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        @font-face {
+            font-family: 'Anja Eliane';
+            src: url('static/AnjaEliane.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
+        }
+        
+        /* Jerarquía tipográfica según manual de marca */
+        body { 
+            font-family: 'Helvetica', Arial, sans-serif; 
+            color: #808080;
+        }
+        
+        /* Títulos principales - Anja Eliane */
+        h1, .title-main { 
+            font-family: 'Anja Eliane', 'Montserrat', 'Helvetica', Arial, sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 0.02em;
+            color: #0066F6;
+        }
+        
+        /* Subtítulos - Helvetica */
+        h2, h3, .subtitle { 
+            font-family: 'Helvetica', Arial, sans-serif;
+            font-weight: 700;
+            color: #0066F6;
+        }
+        
+        /* Texto cuerpo - Helvetica */
+        p, .body-text { 
+            font-family: 'Helvetica', Arial, sans-serif;
+            color: #808080;
+            line-height: 1.7;
+        }
+        
+        /* Texto pequeño - Helvetica */
+        small, .text-small { 
+            font-family: 'Helvetica', Arial, sans-serif;
+            color: #808080;
+        }
+        
+        /* Texto de apoyo - Montserrat */
+        .text-support, .font-body { 
+            font-family: 'Montserrat', 'Helvetica', Arial, sans-serif;
+        }
+        
+        h4, h5, h6 { 
+            font-family: 'Helvetica', Arial, sans-serif;
+            color: #000000;
+        }
+        
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        .whatsapp-icon { width: 1.25em; height: 1.25em; display: inline-block; vertical-align: middle; }
+        .whatsapp-icon-lg { width: 1.75em; height: 1.75em; }
+        .whatsapp-icon-xl { width: 2em; height: 2em; }
+        
+        /* Flip Card Styles */
+        .flip-card {
+            perspective: 1000px;
+            min-width: 300px;
+            width: 300px;
+            height: 520px;
+        }
+        .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+        }
+        .flip-card.flipped .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+        .flip-card-front, .flip-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            border-radius: 1.5rem;
+            overflow: hidden;
+        }
+        .flip-card-front {
+            background: white;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+        .flip-card-back {
+            background: #0066F6;
+            color: white;
+            transform: rotateY(180deg);
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 4px 20px rgba(0,102,246,0.3);
+        }
+        
+        /* Carrusel de logos infinito */
+        @keyframes scroll-logos {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        .animate-scroll-logos {
+            animation: scroll-logos 20s linear infinite;
+        }
+        .animate-scroll-logos:hover {
+            animation-play-state: paused;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 font-display">
+<!-- Header -->
+<header class="fixed top-0 left-0 right-0 z-50 bg-gradient-to-b from-primary/70 to-transparent backdrop-blur-md">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex justify-between items-center h-20">
+<div class="flex items-center gap-2">
+<img alt="Wash Motors Logo" class="h-10 w-auto" src="static/Logotipo_blanco.png"/>
+</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-sm font-body text-white/80 hover:text-white transition-colors" href="#">Inicio</a>
+<a class="text-sm font-body text-white/80 hover:text-white transition-colors" href="#servicios">Servicios</a>
+<a class="text-sm font-body text-white/80 hover:text-white transition-colors" href="#corporativo">Experiencia Corporativa</a>
+<a class="text-sm font-body text-white/80 hover:text-white transition-colors" href="#que-hacemos">Qué Hacemos</a>
+<a class="text-sm font-body text-white/80 hover:text-white transition-colors" href="#contacto">Contacto</a>
+</nav>
+<div class="flex items-center gap-4">
+<button onclick="consultarLavados()" class="hidden sm:flex items-center gap-2 bg-whatsapp text-white px-6 py-2.5 rounded-full font-bold text-sm hover:opacity-90 transition-all shadow-lg shadow-whatsapp/20">
+<svg class="whatsapp-icon" viewBox="-2.73 0 1225.016 1225.016" xmlns="http://www.w3.org/2000/svg"><path fill="#E0E0E0" d="M1041.858 178.02C927.206 63.289 774.753.07 612.325 0 277.617 0 5.232 272.298 5.098 606.991c-.039 106.986 27.915 211.42 81.048 303.476L0 1225.016l321.898-84.406c88.689 48.368 188.547 73.855 290.166 73.896h.258.003c334.654 0 607.08-272.346 607.222-607.023.056-162.208-63.052-314.724-177.689-429.463zm-429.533 933.963h-.197c-90.578-.048-179.402-24.366-256.878-70.339l-18.438-10.93-191.021 50.083 51-186.176-12.013-19.087c-50.525-80.336-77.198-173.175-77.16-268.504.111-278.186 226.507-504.503 504.898-504.503 134.812.056 261.519 52.604 356.814 147.965 95.289 95.36 147.728 222.128 147.688 356.948-.118 278.195-226.522 504.543-504.693 504.543z"></path><linearGradient id="a" gradientUnits="userSpaceOnUse" x1="609.77" y1="1190.114" x2="609.77" y2="21.084"><stop offset="0" stop-color="#20b038"></stop><stop offset="1" stop-color="#60d66a"></stop></linearGradient><path fill="url(#a)" d="M27.875 1190.114l82.211-300.18c-50.719-87.852-77.391-187.523-77.359-289.602.133-319.398 260.078-579.25 579.469-579.25 155.016.07 300.508 60.398 409.898 169.891 109.414 109.492 169.633 255.031 169.57 409.812-.133 319.406-260.094 579.281-579.445 579.281-.023 0 .016 0 0 0h-.258c-96.977-.031-192.266-24.375-276.898-70.5l-307.188 80.548z"></path><path fill="#FFF" d="M462.273 349.294c-11.234-24.977-23.062-25.477-33.75-25.914-8.742-.375-18.75-.352-28.742-.352-10 0-26.25 3.758-39.992 18.766-13.75 15.008-52.5 51.289-52.5 125.078 0 73.797 53.75 145.102 61.242 155.117 7.5 10 103.758 166.266 256.203 226.383 126.695 49.961 152.477 40.023 179.977 37.523s88.734-36.273 101.234-71.297c12.5-35.016 12.5-65.031 8.75-71.305-3.75-6.25-13.75-10-28.75-17.5s-88.734-43.789-102.484-48.789-23.75-7.5-33.75 7.516c-10 15-38.727 48.773-47.477 58.773-8.75 10.023-17.5 11.273-32.5 3.773-15-7.523-63.305-23.344-120.609-74.438-44.586-39.75-74.688-88.844-83.438-103.859-8.75-15-.938-23.125 6.586-30.602 6.734-6.719 15-17.508 22.5-26.266 7.484-8.758 9.984-15.008 14.984-25.008 5-10.016 2.5-18.773-1.25-26.273s-32.898-81.67-46.234-111.326z"></path><path fill="#FFF" d="M1036.898 176.091C923.562 62.677 772.859.185 612.297.114 281.43.114 12.172 269.286 12.039 600.137 12 705.896 39.633 809.13 92.156 900.13L7 1211.067l318.203-83.438c87.672 47.812 186.383 73.008 286.836 73.047h.255.003c330.812 0 600.109-269.219 600.25-600.055.055-160.343-62.328-311.108-175.649-424.53zm-424.601 923.242h-.195c-89.539-.047-177.344-24.086-253.93-69.531l-18.227-10.805-188.828 49.508 50.414-184.039-11.875-18.867c-49.945-79.414-76.312-171.188-76.273-265.422.109-274.992 223.906-498.711 499.102-498.711 133.266.055 258.516 52 352.719 146.266 94.195 94.266 146.031 219.578 145.992 352.852-.118 274.999-223.923 498.749-498.899 498.749z"></path></svg>
+                        WhatsApp
+                    </button>
+<button class="md:hidden text-primary">
+<span class="material-symbols-outlined text-3xl">menu</span>
+</button>
+</div>
+</div>
+</div>
+</header>
+<!-- Hero Section -->
+<section class="relative min-h-[90vh] flex items-center pt-20">
+<div class="absolute inset-0 z-0">
+<img class="w-full h-full object-cover" data-alt="Close up of high pressure water cleaning a luxury car" src="https://lh3.googleusercontent.com/aida-public/AB6AXuChnvwdehJl-Lg169rw9G6T1J9oXIP1N-GuZiR3OzOg3mcYozaHcbcmTRqlPNyBCgkf5uLHuMKRcV3wnbDXDPSf1KX15m8VBo8WQ5-iNiNxoL0i_7VxZElQf6MU3qn6OpSSNcCtIf43hSK3FWWVHdCU7UwUbn3dlem6yUrPgWtWPeOJ2vh4T5su1CZseESrb9jbTxZQhFi_A-MkAmNBW3tf_W6OYXKTGeHTyFImmCL0wcEQX4JXeVSwZzZ8pfEQiwcuEG5GXg6H9Og"/>
+<div class="absolute inset-0 bg-gradient-to-r from-background-dark/80 via-background-dark/40 to-transparent"></div>
+</div>
+<div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+<div class="max-w-2xl">
+<h1 class="text-5xl md:text-7xl font-black text-white leading-tight mb-6">
+                    TU COMODIDAD<br/>
+<span class="text-primary">NUESTRA PRIORIDAD</span>
+</h1>
+<p class="text-xl text-slate-200 mb-10 leading-relaxed">
+                    Llevamos el lavadero hasta vos. Servicio premium a domicilio para que tu vehículo brille sin que pierdas tiempo.
+                </p>
+<div class="flex flex-col sm:flex-row gap-4">
+<a href="#servicios" class="bg-primary text-white px-8 py-4 rounded-full font-bold text-lg flex items-center justify-center gap-2 hover:scale-105 transition-transform">
+                        Agendar ahora
+                    </a>
+<a href="#servicios" class="border-2 border-white/30 backdrop-blur-sm text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-white/10 transition-colors text-center">
+                        Ver Servicios
+                    </a>
+</div>
+</div>
+</div>
+</section>
+<!-- About Us -->
+<section class="py-20 bg-white dark:bg-background-dark/50">
+<div class="max-w-4xl mx-auto px-4 text-center">
+<div class="inline-flex items-center justify-center p-3 rounded-2xl bg-primary/10 text-primary mb-6">
+<span class="material-symbols-outlined text-3xl">eco</span>
+</div>
+<h2 class="text-3xl md:text-4xl font-extrabold mb-6 leading-tight font-subtitle">
+                <span class="text-black">En </span><span class="text-primary font-display">WASH MOTORS</span><span class="text-black"> simplificamos tu rutina.</span>
+            </h2>
+<p class="text-xl text-gray leading-relaxed font-body">
+                Limpiamos y cuidamos tu vehículo sin que tengas que moverte. Utilizamos tecnología de punta y productos amigables con el medio ambiente para garantizar un acabado de salón en la puerta de tu casa.
+            </p>
+</div>
+</section>
+<!-- Services: Estándar -->
+<section class="py-20 overflow-hidden" id="servicios">
+<div class="max-w-7xl mx-auto px-4 mb-12 flex justify-between items-end">
+<div>
+<span class="text-primary font-bold font-body tracking-widest uppercase text-sm">Experiencia Estándar</span>
+<h3 class="text-4xl font-black mt-2"><span class="text-black font-body">Lavados Classic</span> <span class="text-primary font-display">Wash</span></h3>
+</div>
+<div class="hidden md:flex gap-2">
+<button class="p-3 rounded-full border border-primary/20 text-primary hover:bg-primary hover:text-white transition-all">
+<span class="material-symbols-outlined">arrow_back</span>
+</button>
+<button class="p-3 rounded-full border border-primary/20 text-primary hover:bg-primary hover:text-white transition-all">
+<span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</div>
+<div id="lavados-estandar" class="flex gap-6 overflow-x-auto px-4 sm:px-[calc((100vw-1280px)/2)] hide-scrollbar pb-8">
+<!-- Las tarjetas se cargan dinámicamente desde Google Sheets -->
+</div>
+</section>
+<!-- Services: Premium -->
+<section class="py-20 bg-gradient-to-b from-black to-transparent text-white overflow-hidden">
+<div class="max-w-7xl mx-auto px-4 mb-12 flex justify-between items-end">
+<div>
+<span class="text-primary font-bold font-body tracking-widest uppercase text-sm">Experiencia Premium</span>
+<h3 class="text-4xl md:text-5xl font-black mt-4"><span class="text-white font-body">Lavados Full</span> <span class="text-primary font-display">Wash</span></h3>
+<p class="text-slate-400 mt-4 max-w-2xl">Para quienes buscan la perfección. Tratamientos de estética vehicular de alto nivel.</p>
+</div>
+<div class="hidden md:flex gap-2">
+<button onclick="scrollPremium(-1)" class="p-3 rounded-full border border-white/20 text-white hover:bg-white hover:text-slate-900 transition-all">
+<span class="material-symbols-outlined">arrow_back</span>
+</button>
+<button onclick="scrollPremium(1)" class="p-3 rounded-full border border-white/20 text-white hover:bg-white hover:text-slate-900 transition-all">
+<span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</div>
+<div id="lavados-premium" class="flex gap-6 overflow-x-auto px-4 sm:px-[calc((100vw-1280px)/2)] hide-scrollbar pb-8">
+<!-- Las tarjetas se cargan dinámicamente desde Google Sheets -->
+</div>
+</section>
+<!-- Corporate Experience -->
+<section class="py-24 bg-gradient-to-b from-white to-primary overflow-hidden" id="corporativo">
+<div class="max-w-7xl mx-auto px-4">
+<div class="grid lg:grid-cols-2 gap-16 items-center mb-20">
+<div>
+<span class="text-primary font-bold font-body tracking-widest uppercase text-sm mb-4 block">Servicios Corporativos</span>
+<h3 class="text-5xl md:text-6xl font-black mb-8 leading-tight font-display text-primary">Soluciones de limpieza para flotas corporativas</h3>
+<p class="text-xl text-gray mb-10 font-body">Mantenemos la imagen de tu empresa impecable sin interrumpir la operación de tu negocio.</p>
+<div class="flex flex-wrap gap-6 mb-10">
+<div class="flex items-center gap-3">
+<div class="w-12 h-12 rounded-full bg-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-2xl">settings</span>
+</div>
+<span class="font-body font-semibold text-black">Mantenimiento Profesional</span>
+</div>
+<div class="flex items-center gap-3">
+<div class="w-12 h-12 rounded-full bg-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-2xl">savings</span>
+</div>
+<span class="font-body font-semibold text-black">Reducción de Costos</span>
+</div>
+<div class="flex items-center gap-3">
+<div class="w-12 h-12 rounded-full bg-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-2xl">tune</span>
+</div>
+<span class="font-body font-semibold text-black">Soluciones Personalizadas</span>
+</div>
+<div class="flex items-center gap-3">
+<div class="w-12 h-12 rounded-full bg-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-2xl">schedule</span>
+</div>
+<span class="font-body font-semibold text-black">Sin Interrupciones</span>
+</div>
+</div>
+<button onclick="consultarCorporativo()" class="bg-primary text-white px-10 py-5 rounded-full font-black text-lg shadow-xl hover:scale-105 transition-transform">
+                        Consultar servicio corporativo
+                    </button>
+</div>
+<div class="relative">
+<div class="relative rounded-3xl overflow-hidden shadow-2xl">
+<img class="w-full h-[400px] object-cover" src="https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?w=800&auto=format&fit=crop" alt="Flota corporativa"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/60 to-transparent"></div>
+<div class="absolute bottom-6 left-6 right-6">
+<div class="flex items-center gap-4">
+<div class="bg-white/20 backdrop-blur-sm rounded-2xl px-6 py-4 border border-white/30">
+<p class="text-3xl font-black text-white">+500</p>
+<p class="text-sm text-white/80">Vehículos atendidos</p>
+</div>
+<div class="bg-white/20 backdrop-blur-sm rounded-2xl px-6 py-4 border border-white/30">
+<p class="text-3xl font-black text-white">15+</p>
+<p class="text-sm text-white/80">Empresas confían</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Carrusel de marcas -->
+<div class="border-t border-white/20 pt-12 text-white">
+<p class="text-center text-white/60 font-body uppercase tracking-widest text-sm mb-8">Empresas que confían en nosotros</p>
+<div class="relative overflow-hidden">
+<div class="flex gap-16 animate-scroll-logos">
+<div class="flex gap-16 items-center min-w-max">
+<img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" alt="Google" class="h-8 w-auto brightness-0 invert opacity-70 hover:opacity-100 transition-opacity"/>
+<img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" alt="Amazon" class="h-8 w-auto brightness-0 invert opacity-70 hover:opacity-100 transition-opacity"/>
+<img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg" alt="Microsoft" class="h-8 w-auto brightness-0 invert opacity-70 hover:opacity-100 transition-opacity"/>
+<img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg" alt="Apple" class="h-8 w-auto brightness-0 invert opacity-70 hover:opacity-100 transition-opacity"/>
+<img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg" alt="Netflix" class="h-8 w-auto brightness-0 invert opacity-70 hover:opacity-100 transition-opacity"/>
+<img src="https://upload.wikimedia.org/wikipedia/commons/5/51/IBM_logo.svg" alt="IBM" class="h-8 w-auto brightness-0 invert opacity-70 hover:opacity-100 transition-opacity"/>
+<img src="https://upload.wikimedia.org/wikipedia/commons/e/e8/Tesla_logo.png" alt="Tesla" class="h-6 w-auto brightness-0 invert opacity-70 hover:opacity-100 transition-opacity"/>
+<img src="https://upload.wikimedia.org/wikipedia/commons/2/26/Spotify_logo_with_text.svg" alt="Spotify" class="h-8 w-auto brightness-0 invert opacity-70 hover:opacity-100 transition-opacity"/>
+</div>
+<div class="flex gap-16 items-center min-w-max">
+<img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" alt="Google" class="h-8 w-auto brightness-0 invert opacity-70 hover:opacity-100 transition-opacity"/>
+<img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" alt="Amazon" class="h-8 w-auto brightness-0 invert opacity-70 hover:opacity-100 transition-opacity"/>
+<img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg" alt="Microsoft" class="h-8 w-auto brightness-0 invert opacity-70 hover:opacity-100 transition-opacity"/>
+<img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg" alt="Apple" class="h-8 w-auto brightness-0 invert opacity-70 hover:opacity-100 transition-opacity"/>
+<img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg" alt="Netflix" class="h-8 w-auto brightness-0 invert opacity-70 hover:opacity-100 transition-opacity"/>
+<img src="https://upload.wikimedia.org/wikipedia/commons/5/51/IBM_logo.svg" alt="IBM" class="h-8 w-auto brightness-0 invert opacity-70 hover:opacity-100 transition-opacity"/>
+<img src="https://upload.wikimedia.org/wikipedia/commons/e/e8/Tesla_logo.png" alt="Tesla" class="h-6 w-auto brightness-0 invert opacity-70 hover:opacity-100 transition-opacity"/>
+<img src="https://upload.wikimedia.org/wikipedia/commons/2/26/Spotify_logo_with_text.svg" alt="Spotify" class="h-8 w-auto brightness-0 invert opacity-70 hover:opacity-100 transition-opacity"/>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- What We Do -->
+<section class="py-24 bg-slate-100 dark:bg-background-dark" id="que-hacemos">
+<div class="max-w-7xl mx-auto px-4">
+<div class="grid lg:grid-cols-2 gap-16 items-center">
+<div class="order-2 lg:order-1 relative rounded-3xl overflow-hidden shadow-2xl">
+<div class="flex animate-carousel">
+<img class="w-full shrink-0 h-[500px] object-cover" data-alt="High tech car wash machines in action" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBHSKvASOY_M7x0HG9-zR3SE7XYz8o2yLq29xvxCcxqxkzPoj-OjPs2ijrO0xN7WkfeXw0WfhsK3fG7V4IEPdDGj5ysJAbO4OxsvQokfPIzvRpZrlzlmGaTP6IjuFK0rupw3vjWJNyNdRYez_qIdOVFNx2rdun38VioyILKYDUB9lIRss8r_Q2hOirOoUpONmF20nduht0aG_HyQ09uGP37lwwStguG1lf4QETHsabVH56r1EptOG3Ck7F-9dUUpg_ZLV-cY6jhxog"/>
+</div>
+<div class="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2">
+<div class="w-2 h-2 rounded-full bg-white"></div>
+<div class="w-2 h-2 rounded-full bg-white/40"></div>
+<div class="w-2 h-2 rounded-full bg-white/40"></div>
+</div>
+</div>
+<div class="order-1 lg:order-2">
+<h3 class="text-4xl font-black mb-12">Cómo trabajamos</h3>
+<div class="space-y-8">
+<div class="flex gap-6">
+<div class="w-14 h-14 shrink-0 rounded-2xl bg-primary flex items-center justify-center text-white">
+<span class="material-symbols-outlined text-3xl">home</span>
+</div>
+<div>
+<h4 class="text-xl font-bold mb-2">Comodidad total</h4>
+<p class="text-slate-500 dark:text-slate-400">No necesitas moverte. Vamos a tu casa, oficina o gimnasio en el horario que prefieras.</p>
+</div>
+</div>
+<div class="flex gap-6">
+<div class="w-14 h-14 shrink-0 rounded-2xl bg-primary flex items-center justify-center text-white">
+<span class="material-symbols-outlined text-3xl">schedule</span>
+</div>
+<div>
+<h4 class="text-xl font-bold mb-2">Puntualidad garantizada</h4>
+<p class="text-slate-500 dark:text-slate-400">Respetamos tu tiempo. Nuestro equipo llega exactamente cuando lo agendaste.</p>
+</div>
+</div>
+<div class="flex gap-6">
+<div class="w-14 h-14 shrink-0 rounded-2xl bg-primary flex items-center justify-center text-white">
+<span class="material-symbols-outlined text-3xl">verified</span>
+</div>
+<div>
+<h4 class="text-xl font-bold mb-2">Resultados profesionales</h4>
+<p class="text-slate-500 dark:text-slate-400">Personal capacitado y productos de alta gama para asegurar el mejor cuidado.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Schedule/CTA -->
+<section class="py-24 bg-primary overflow-hidden relative" id="contacto">
+<div class="absolute top-0 right-0 -translate-y-1/2 translate-x-1/2 w-96 h-96 bg-white/10 rounded-full"></div>
+<div class="max-w-7xl mx-auto px-4 relative z-10">
+<div class="bg-white dark:bg-slate-900 p-12 md:p-20 rounded-[3rem] text-center shadow-2xl">
+<h3 class="text-4xl md:text-5xl font-black mb-6">¿Tu auto necesita un lavado?</h3>
+<p class="text-xl text-slate-500 dark:text-slate-400 mb-10 max-w-xl mx-auto">Hablá con nosotros por WhatsApp y agendá tu turno en menos de 2 minutos.</p>
+<button onclick="consultarLavados()" class="bg-whatsapp text-white px-12 py-5 rounded-full font-black text-xl flex items-center justify-center gap-3 mx-auto hover:scale-105 transition-transform shadow-xl shadow-whatsapp/30">
+<svg class="whatsapp-icon-xl" viewBox="-2.73 0 1225.016 1225.016" xmlns="http://www.w3.org/2000/svg"><path fill="#E0E0E0" d="M1041.858 178.02C927.206 63.289 774.753.07 612.325 0 277.617 0 5.232 272.298 5.098 606.991c-.039 106.986 27.915 211.42 81.048 303.476L0 1225.016l321.898-84.406c88.689 48.368 188.547 73.855 290.166 73.896h.258.003c334.654 0 607.08-272.346 607.222-607.023.056-162.208-63.052-314.724-177.689-429.463zm-429.533 933.963h-.197c-90.578-.048-179.402-24.366-256.878-70.339l-18.438-10.93-191.021 50.083 51-186.176-12.013-19.087c-50.525-80.336-77.198-173.175-77.16-268.504.111-278.186 226.507-504.503 504.898-504.503 134.812.056 261.519 52.604 356.814 147.965 95.289 95.36 147.728 222.128 147.688 356.948-.118 278.195-226.522 504.543-504.693 504.543z"></path><linearGradient id="c" gradientUnits="userSpaceOnUse" x1="609.77" y1="1190.114" x2="609.77" y2="21.084"><stop offset="0" stop-color="#20b038"></stop><stop offset="1" stop-color="#60d66a"></stop></linearGradient><path fill="url(#c)" d="M27.875 1190.114l82.211-300.18c-50.719-87.852-77.391-187.523-77.359-289.602.133-319.398 260.078-579.25 579.469-579.25 155.016.07 300.508 60.398 409.898 169.891 109.414 109.492 169.633 255.031 169.57 409.812-.133 319.406-260.094 579.281-579.445 579.281-.023 0 .016 0 0 0h-.258c-96.977-.031-192.266-24.375-276.898-70.5l-307.188 80.548z"></path><path fill="#FFF" d="M462.273 349.294c-11.234-24.977-23.062-25.477-33.75-25.914-8.742-.375-18.75-.352-28.742-.352-10 0-26.25 3.758-39.992 18.766-13.75 15.008-52.5 51.289-52.5 125.078 0 73.797 53.75 145.102 61.242 155.117 7.5 10 103.758 166.266 256.203 226.383 126.695 49.961 152.477 40.023 179.977 37.523s88.734-36.273 101.234-71.297c12.5-35.016 12.5-65.031 8.75-71.305-3.75-6.25-13.75-10-28.75-17.5s-88.734-43.789-102.484-48.789-23.75-7.5-33.75 7.516c-10 15-38.727 48.773-47.477 58.773-8.75 10.023-17.5 11.273-32.5 3.773-15-7.523-63.305-23.344-120.609-74.438-44.586-39.75-74.688-88.844-83.438-103.859-8.75-15-.938-23.125 6.586-30.602 6.734-6.719 15-17.508 22.5-26.266 7.484-8.758 9.984-15.008 14.984-25.008 5-10.016 2.5-18.773-1.25-26.273s-32.898-81.67-46.234-111.326z"></path><path fill="#FFF" d="M1036.898 176.091C923.562 62.677 772.859.185 612.297.114 281.43.114 12.172 269.286 12.039 600.137 12 705.896 39.633 809.13 92.156 900.13L7 1211.067l318.203-83.438c87.672 47.812 186.383 73.008 286.836 73.047h.255.003c330.812 0 600.109-269.219 600.25-600.055.055-160.343-62.328-311.108-175.649-424.53zm-424.601 923.242h-.195c-89.539-.047-177.344-24.086-253.93-69.531l-18.227-10.805-188.828 49.508 50.414-184.039-11.875-18.867c-49.945-79.414-76.312-171.188-76.273-265.422.109-274.992 223.906-498.711 499.102-498.711 133.266.055 258.516 52 352.719 146.266 94.195 94.266 146.031 219.578 145.992 352.852-.118 274.999-223.923 498.749-498.899 498.749z"></path></svg>
+                    Agendar por WhatsApp
+                </button>
+<div class="mt-16 flex justify-center gap-6">
+<a class="w-12 h-12 rounded-full border border-slate-200 dark:border-slate-700 flex items-center justify-center hover:bg-primary hover:text-white hover:border-primary transition-all" href="#">
+<span class="material-symbols-outlined">share</span>
+</a>
+<a class="w-12 h-12 rounded-full border border-slate-200 dark:border-slate-700 flex items-center justify-center hover:bg-primary hover:text-white hover:border-primary transition-all" href="#">
+<span class="material-symbols-outlined">photo_camera</span>
+</a>
+<a class="w-12 h-12 rounded-full border border-slate-200 dark:border-slate-700 flex items-center justify-center hover:bg-primary hover:text-white hover:border-primary transition-all" href="#">
+<span class="material-symbols-outlined">public</span>
+</a>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="pt-20 pb-28 md:pb-12 border-t dark:border-slate-800 bg-black border-white/10">
+<div class="max-w-7xl mx-auto px-4"><div class="grid md:grid-cols-4 gap-12 mb-16">
+<div class="col-span-2">
+<div class="flex items-center gap-2 mb-6">
+<img alt="Wash Motors Logo" class="h-8 w-auto" data-alt="Small version of the company logo for footer" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBS4iBwOX9re1LSRdmmCJ5GWxeosmozJd0XJMYLFlOGl-mZte5d7jt6ll4Sv2XjZ4aHVOYccoyxzzVdQNT9AUCRusm-h0z-ZSYJ3sIlvnWFbTsFMnrGS3pPZdHvWNzcX4Zx27S1pnMNxQnwzm60pSAzjAu2B4wXUjIqge3PE78Zep6vqMvS6DPqGbvBOSJDP1Rf6Llh0iPKSzmHrW75s5XeLKJzZZerckM64lL_pNohAvs3kxkhd4-_66BPrTw0WH1rsJXOqA5Ytio"/>
+<span class="text-xl font-black tracking-tighter text-white">WASH MOTORS</span>
+</div>
+<p class="text-slate-400 max-w-sm mb-8">
+                        Líderes en detallado automotriz móvil. Calidad premium donde sea que estés. Transformamos la forma de lavar tu vehículo.
+                    </p>
+</div>
+<div>
+<h5 class="font-bold mb-6 text-white">Enlaces Rápidos</h5>
+<ul class="space-y-4 text-slate-400 text-sm">
+<li><a class="hover:text-white transition-colors" href="#">Inicio</a></li>
+<li><a class="hover:text-white transition-colors" href="#servicios">Servicios</a></li>
+<li><a class="hover:text-white transition-colors" href="#corporativo">Experiencia Corporativa</a></li>
+<li><a class="hover:text-white transition-colors" href="#que-hacemos">Qué Hacemos</a></li>
+</ul>
+</div>
+<div>
+<h5 class="font-bold mb-6 text-white">Contacto</h5>
+<ul class="space-y-4 text-slate-400 text-sm">
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-sm">mail</span>
+                            hola@washmotors.com
+                        </li>
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-sm">phone</span>
+                            +54 9 11 1234 5678
+                        </li>
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-sm">location_on</span>
+                            Buenos Aires, Argentina
+                        </li>
+</ul>
+</div>
+</div>
+<div class="pt-8 border-t border-white/10 text-center text-sm text-slate-500">
+                © 2024 WASH MOTORS. Todos los derechos reservados.
+            </div></div>
+</footer>
+<!-- Mobile Fixed Bottom Nav -->
+<nav class="md:hidden fixed bottom-6 left-1/2 -translate-x-1/2 w-[90%] max-w-md bg-white/90 dark:bg-slate-900/90 backdrop-blur-xl border border-white/20 rounded-full shadow-2xl z-50 flex justify-around p-4">
+<a class="text-primary flex flex-col items-center" href="#">
+<span class="material-symbols-outlined">home</span>
+</a>
+<a class="text-slate-400 flex flex-col items-center" href="#servicios">
+<span class="material-symbols-outlined">minor_crash</span>
+</a>
+<a class="text-slate-400 flex flex-col items-center" href="#que-hacemos">
+<span class="material-symbols-outlined">info</span>
+</a>
+<a class="text-slate-400 flex flex-col items-center" href="#contacto">
+<span class="material-symbols-outlined">chat</span>
+</a>
+</nav>
+<!-- Floating WhatsApp Mobile -->
+<button onclick="consultarLavados()" class="md:hidden fixed bottom-24 right-6 w-14 h-14 bg-whatsapp text-white rounded-full flex items-center justify-center shadow-xl z-40 p-3">
+<svg viewBox="-2.73 0 1225.016 1225.016" xmlns="http://www.w3.org/2000/svg"><path fill="#E0E0E0" d="M1041.858 178.02C927.206 63.289 774.753.07 612.325 0 277.617 0 5.232 272.298 5.098 606.991c-.039 106.986 27.915 211.42 81.048 303.476L0 1225.016l321.898-84.406c88.689 48.368 188.547 73.855 290.166 73.896h.258.003c334.654 0 607.08-272.346 607.222-607.023.056-162.208-63.052-314.724-177.689-429.463zm-429.533 933.963h-.197c-90.578-.048-179.402-24.366-256.878-70.339l-18.438-10.93-191.021 50.083 51-186.176-12.013-19.087c-50.525-80.336-77.198-173.175-77.16-268.504.111-278.186 226.507-504.503 504.898-504.503 134.812.056 261.519 52.604 356.814 147.965 95.289 95.36 147.728 222.128 147.688 356.948-.118 278.195-226.522 504.543-504.693 504.543z"></path><linearGradient id="d" gradientUnits="userSpaceOnUse" x1="609.77" y1="1190.114" x2="609.77" y2="21.084"><stop offset="0" stop-color="#20b038"></stop><stop offset="1" stop-color="#60d66a"></stop></linearGradient><path fill="url(#d)" d="M27.875 1190.114l82.211-300.18c-50.719-87.852-77.391-187.523-77.359-289.602.133-319.398 260.078-579.25 579.469-579.25 155.016.07 300.508 60.398 409.898 169.891 109.414 109.492 169.633 255.031 169.57 409.812-.133 319.406-260.094 579.281-579.445 579.281-.023 0 .016 0 0 0h-.258c-96.977-.031-192.266-24.375-276.898-70.5l-307.188 80.548z"></path><path fill="#FFF" d="M462.273 349.294c-11.234-24.977-23.062-25.477-33.75-25.914-8.742-.375-18.75-.352-28.742-.352-10 0-26.25 3.758-39.992 18.766-13.75 15.008-52.5 51.289-52.5 125.078 0 73.797 53.75 145.102 61.242 155.117 7.5 10 103.758 166.266 256.203 226.383 126.695 49.961 152.477 40.023 179.977 37.523s88.734-36.273 101.234-71.297c12.5-35.016 12.5-65.031 8.75-71.305-3.75-6.25-13.75-10-28.75-17.5s-88.734-43.789-102.484-48.789-23.75-7.5-33.75 7.516c-10 15-38.727 48.773-47.477 58.773-8.75 10.023-17.5 11.273-32.5 3.773-15-7.523-63.305-23.344-120.609-74.438-44.586-39.75-74.688-88.844-83.438-103.859-8.75-15-.938-23.125 6.586-30.602 6.734-6.719 15-17.508 22.5-26.266 7.484-8.758 9.984-15.008 14.984-25.008 5-10.016 2.5-18.773-1.25-26.273s-32.898-81.67-46.234-111.326z"></path><path fill="#FFF" d="M1036.898 176.091C923.562 62.677 772.859.185 612.297.114 281.43.114 12.172 269.286 12.039 600.137 12 705.896 39.633 809.13 92.156 900.13L7 1211.067l318.203-83.438c87.672 47.812 186.383 73.008 286.836 73.047h.255.003c330.812 0 600.109-269.219 600.25-600.055.055-160.343-62.328-311.108-175.649-424.53zm-424.601 923.242h-.195c-89.539-.047-177.344-24.086-253.93-69.531l-18.227-10.805-188.828 49.508 50.414-184.039-11.875-18.867c-49.945-79.414-76.312-171.188-76.273-265.422.109-274.992 223.906-498.711 499.102-498.711 133.266.055 258.516 52 352.719 146.266 94.195 94.266 146.031 219.578 145.992 352.852-.118 274.999-223.923 498.749-498.899 498.749z"></path></svg>
+</button>
+
+<!-- Modal de Agendamiento -->
+<div id="modal-agendar" class="fixed inset-0 z-50 hidden items-center justify-center p-4">
+    <div class="absolute inset-0 bg-black/60 backdrop-blur-sm" onclick="closeAgendarModal()"></div>
+    <div class="relative bg-white rounded-3xl shadow-2xl max-w-md w-full max-h-[90vh] overflow-hidden">
+        <!-- Header del modal -->
+        <div class="bg-primary p-6 text-white">
+            <button onclick="closeAgendarModal()" class="absolute top-4 right-4 w-8 h-8 rounded-full bg-white/20 flex items-center justify-center hover:bg-white/30 transition-colors">
+                <span class="material-symbols-outlined text-lg">close</span>
+            </button>
+            <img src="static/Iso_Wash Motors_blanco.png" alt="Wash Motors" class="h-8 mb-2">
+            <h3 class="text-2xl font-display font-black text-white" id="modal-lavado-nombre">Lavado</h3>
+        </div>
+        
+        <!-- Contenido del modal -->
+        <div class="p-6">
+            <!-- Paso 1: Fecha -->
+            <div id="paso-fecha" class="paso-content">
+                <p class="text-gray font-body mb-4">Selecciona la fecha para tu lavado:</p>
+                <input type="date" id="fecha-lavado" class="w-full border-2 border-gray/20 rounded-xl p-4 font-body text-lg focus:border-primary focus:outline-none transition-colors" min="">
+                <button onclick="irAPasoHorario()" class="w-full mt-6 bg-primary text-white py-4 rounded-full font-bold hover:opacity-90 transition-opacity">
+                    Continuar
+                </button>
+            </div>
+            
+            <!-- Paso 2: Horario -->
+            <div id="paso-horario" class="paso-content hidden">
+                <p class="text-gray font-body mb-4">Selecciona el horario aproximado:</p>
+                <div class="grid grid-cols-2 gap-3" id="horarios-container">
+                    <button onclick="seleccionarHorario('08:00')" class="horario-btn border-2 border-gray/20 rounded-xl p-4 font-body hover:border-primary hover:bg-primary/5 transition-all">08:00</button>
+                    <button onclick="seleccionarHorario('09:00')" class="horario-btn border-2 border-gray/20 rounded-xl p-4 font-body hover:border-primary hover:bg-primary/5 transition-all">09:00</button>
+                    <button onclick="seleccionarHorario('10:00')" class="horario-btn border-2 border-gray/20 rounded-xl p-4 font-body hover:border-primary hover:bg-primary/5 transition-all">10:00</button>
+                    <button onclick="seleccionarHorario('11:00')" class="horario-btn border-2 border-gray/20 rounded-xl p-4 font-body hover:border-primary hover:bg-primary/5 transition-all">11:00</button>
+                    <button onclick="seleccionarHorario('12:00')" class="horario-btn border-2 border-gray/20 rounded-xl p-4 font-body hover:border-primary hover:bg-primary/5 transition-all">12:00</button>
+                    <button onclick="seleccionarHorario('14:00')" class="horario-btn border-2 border-gray/20 rounded-xl p-4 font-body hover:border-primary hover:bg-primary/5 transition-all">14:00</button>
+                    <button onclick="seleccionarHorario('15:00')" class="horario-btn border-2 border-gray/20 rounded-xl p-4 font-body hover:border-primary hover:bg-primary/5 transition-all">15:00</button>
+                    <button onclick="seleccionarHorario('16:00')" class="horario-btn border-2 border-gray/20 rounded-xl p-4 font-body hover:border-primary hover:bg-primary/5 transition-all">16:00</button>
+                </div>
+                <button onclick="volverAPasoFecha()" class="w-full mt-4 border-2 border-gray/30 text-gray py-3 rounded-full font-bold hover:border-primary hover:text-primary transition-all">
+                    Volver
+                </button>
+            </div>
+            
+            <!-- Paso 3: Confirmación -->
+            <div id="paso-confirmacion" class="paso-content hidden">
+                <div class="bg-primary/5 rounded-2xl p-6 mb-6">
+                    <h4 class="font-display font-bold text-primary text-lg mb-4">Resumen de tu cita</h4>
+                    <div class="space-y-3 font-body">
+                        <div class="flex justify-between">
+                            <span class="text-gray">Servicio:</span>
+                            <span class="font-bold text-black" id="resumen-servicio"></span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-gray">Fecha:</span>
+                            <span class="font-bold text-black" id="resumen-fecha"></span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-gray">Horario:</span>
+                            <span class="font-bold text-black" id="resumen-horario"></span>
+                        </div>
+                    </div>
+                </div>
+                <button onclick="confirmarAgendamiento()" class="w-full bg-whatsapp text-white py-4 rounded-full font-bold hover:opacity-90 transition-opacity flex items-center justify-center gap-2">
+                    <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                    Confirmar por WhatsApp
+                </button>
+                <button onclick="volverAPasoHorario()" class="w-full mt-3 border-2 border-gray/30 text-gray py-3 rounded-full font-bold hover:border-primary hover:text-primary transition-all">
+                    Volver
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Script para cargar lavados desde Google Sheets -->
+<script src="lavados.js"></script>
+</body></html>

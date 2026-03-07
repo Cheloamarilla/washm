@@ -317,6 +317,19 @@ function togglePremiumDetail(cardId) {
 }
 
 /**
+ * Scroll del carrusel de tarjetas estándar
+ * @param {number} direction - Dirección del scroll (-1 izquierda, 1 derecha)
+ */
+function scrollEstandar(direction) {
+    const container = document.getElementById('lavados-estandar');
+    const cardWidth = 330; // Ancho de tarjeta + gap
+    container.scrollBy({
+        left: direction * cardWidth,
+        behavior: 'smooth'
+    });
+}
+
+/**
  * Scroll del carrusel de tarjetas premium
  * @param {number} direction - Dirección del scroll (-1 izquierda, 1 derecha)
  */
@@ -575,5 +588,7 @@ window.WashMotorsLavados = {
     renderLavados,
     initLavados,
     openAgendarModal,
-    closeAgendarModal
+    closeAgendarModal,
+    scrollEstandar,
+    scrollPremium
 };

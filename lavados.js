@@ -5,15 +5,15 @@ const SHEET_URL = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tq
 // Imágenes por defecto para las tarjetas (puedes cambiarlas)
 const DEFAULT_IMAGES = {
     estandar: [
-        'https://lh3.googleusercontent.com/aida-public/AB6AXuDYn0rd4qhX9BU-SOHOHKbkZA1zeLZmK8lZhFyt_PGKidwjLqFYFhX8Dn13NUcxye6JG1QoGuT3SffbDBjeJLNwq6iCdnreAVpCPGW4DnC6S3aPusjfmcC6Do1p8sOW66SNCny-4xs45qYKFZsP2qspIXm5Js-xw_oBOXUNuI2scAjsJxyUMIPpQG6PVAcOP5NumtjRSQXX0F0gwOTEg5L9DN7bbdTxdCkLRRSoNhYHfbWjXUSotKVcDPhKKxPm0vcyNVYLJ3jwuDY',
-        'https://lh3.googleusercontent.com/aida-public/AB6AXuBHaUCUwK-bbdnTyxqppdfN_SwSLxEP-ptOUsLaDgVKcFIyEv5Fva8r7yLLzx4TapoMRCANtIKGJMTbB2LBkVkQyOOUe3xURucUYO1Muyt957hH7OJlio-R1aaso-2sfRBv9pYwWeD0HMoSITywMNWGIo386MWuXhZVf-mNj_JxRhQkxuY_L1_L0PjCb-tf-lFEqDcp_kQhi_44Fjp1m1ag3p5aMNSux7qTPMDrPu11d-IwQKUo7JMmgUbMvaToZ6BbOIfDqAFT3Bc',
-        'https://lh3.googleusercontent.com/aida-public/AB6AXuAlMeHNENAMFPuS1pHvD4LJB4vn4vkreMvyJxQbVDGZI1BAcUxY8BImbSIi8-MtNgSLH1Nlb4jOmikIBXkxUcopkiC9uNIVvTF5q1Q7MMHxNqvjXbhDrAzWBx6PgKFWwb5RgCbjhDR0sAMIdMGGecSFFUFgHAiRtQ4VMgd0GmKfbVPFYwhT09rmk3z7yCI8pYv2W4TOVc0Sz9sv-cqwWG6uB1c5LI6d_d37fuE_oU6c6Sp6AL2XLMy4QRWwqobLM1BrBZm954fzBKw',
-        'https://lh3.googleusercontent.com/aida-public/AB6AXuBHSKvASOY_M7x0HG9-zR3SE7XYz8o2yLq29xvxCcxqxkzPoj-OjPs2ijrO0xN7WkfeXw0WfhsK3fG7V4IEPdDGj5ysJAbO4OxsvQokfPIzvRpZrlzlmGaTP6IjuFK0rupw3vjWJNyNdRYez_qIdOVFNx2rdun38VioyILKYDUB9lIRss8r_Q2hOirOoUpONmF20nduht0aG_HyQ09uGP37lwwStguG1lf4QETHsabVH56r1EptOG3Ck7F-9dUUpg_ZLV-cY6jhxog'
+        'static/wash 1 .jpg',
+        'static/wash 2.jpg',
+        'static/wash 3.jpg',
+        'static/wash 4.jpg'
     ],
     premium: [
-        'https://lh3.googleusercontent.com/aida-public/AB6AXuChcreqysdgb9CHqfeUkGMD5TSI1RIaJe1pTRhXqLHNvdmrvcrYR2y1j-BFk11N9r_oeThD7UwjYckh8LFwKMC7_3614UfamVOmAOE76mfsP5wD6akOwdWlTJvdqC4nYOjRE5Cx-mgVoKZGvKamyGpPw7j7WJ33WumN8MNTu4DVtHp1wnEzaE7F1FNE736bzH-Iklo7AB6vnU1hPzZeM5xd1F55zLp6aWfr96QMJt0aDw7ImNScftE8qPcxgBOcZ0ddjx3KNDkUAcA',
-        'https://lh3.googleusercontent.com/aida-public/AB6AXuBroWmur8hhw2JrqGTtqATmZx_oYkq1-pEMFIu__mGLcaXkocwHajSs9PSI4QToemLL-EmTs9T5JAYXsqu9uC50xrEsLu26UrDo40m-C0v3VWVxcQVJNJAgrLQsZNE9wIvv3HYXt5NBLKD-ed7feBMiTFvcycax2fOj9odsrtl0uXonJwBIisMPNGFH661f54mi-KwUjxP61HKuIpzUqDVG2OUjLN9zPkCOJLTWvAgFwbJCUILX3i34v_GKq3IksIeYhMGGKwxgVAA',
-        'https://lh3.googleusercontent.com/aida-public/AB6AXuChnvwdehJl-Lg169rw9G6T1J9oXIP1N-GuZiR3OzOg3mcYozaHcbcmTRqlPNyBCgkf5uLHuMKRcV3wnbDXDPSf1KX15m8VBo8WQ5-iNiNxoL0i_7VxZElQf6MU3qn6OpSSNcCtIf43hSK3FWWVHdCU7UwUbn3dlem6yUrPgWtWPeOJ2vh4T5su1CZseESrb9jbTxZQhFi_A-MkAmNBW3tf_W6OYXKTGeHTyFImmCL0wcEQX4JXeVSwZzZ8pfEQiwcuEG5GXg6H9Og'
+        'static/full wash interior.jpg',
+        'static/full wash exterior .jpg',
+        'static/full wash experience.jpg'
     ]
 };
 
@@ -130,11 +130,12 @@ function createEstandarCard(lavado, index) {
     // Formatear el detalle para mostrar como lista
     const detalleFormateado = lavado.detalle 
         ? lavado.detalle.split('\n').filter(item => item.trim()).map(item => 
-            `<li class="flex items-start gap-2 font-body font-normal"><span class="text-white/80">✓</span> ${item.trim()}</li>`
+            `<li class="flex items-start gap-2 font-body font-normal"><img src="static/Iso_Wash Motors_blanco.png" class="w-4 h-4 mt-0.5 flex-shrink-0" alt="★"/> ${item.trim()}</li>`
           ).join('')
         : '';
     
     const cardId = `card-${index}`;
+    const objectPosition = index === 0 ? 'object-top' : 'object-center';
     
     return `
         <div class="flip-card" id="${cardId}">
@@ -142,9 +143,10 @@ function createEstandarCard(lavado, index) {
                 <!-- Cara Frontal -->
                 <div class="flip-card-front bg-white flex flex-col rounded-3xl ${destacadoBorder} shadow-xl shadow-primary/5">
                     <div class="h-48 relative overflow-hidden rounded-t-3xl flex-shrink-0">
-                        <img class="w-full h-full object-cover" 
+                        <img class="w-full h-full object-cover ${objectPosition}" 
                              src="${lavado.imagen}" 
                              alt="${lavado.nombre}"/>
+                        <div class="absolute inset-0 bg-black/30"></div>
                         ${destacadoBadge}
                         ${lavado.precio ? `
                             <div class="absolute top-4 right-4 bg-primary text-white px-3 py-1 rounded-full font-bold text-sm">
@@ -215,7 +217,7 @@ function createPremiumCard(lavado, index) {
     // Formatear el detalle para mostrar como lista
     const detalleFormateado = items.length > 0
         ? items.map(item => 
-            `<li class="flex items-center gap-2 font-body font-normal text-white/90 ${textSize}"><span class="w-1 h-1 bg-white rounded-full flex-shrink-0"></span> ${item.trim()}</li>`
+            `<li class="flex items-center gap-2 font-body font-normal text-white/90 ${textSize}"><img src="static/Iso_Wash Motors_blanco.png" class="w-4 h-4 flex-shrink-0" alt="★"/> ${item.trim()}</li>`
           ).join('')
         : '<li class="font-body font-normal text-sm">Servicio premium completo</li>';
     

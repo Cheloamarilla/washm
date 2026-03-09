@@ -101,28 +101,33 @@
         
         /* Flip Card Styles */
         .flip-card {
-            perspective: 1000px;
-            min-width: 300px;
-            width: 300px;
-            height: 520px;
+            perspective: 1000px; /* Permite el efecto 3D */
+            min-width: 300px;   /* Ancho mínimo para mantener la legibilidad */
+            width: 300px; /* Ancho fijo para mantener la proporción */
+            height: 580px; /* Alto fijo para mantener la proporción */
+        }
+        @media (min-width: 768px) { /* Ajustes para pantallas medianas */
+            .flip-card { /* Ajuste de tamaño para pantallas medianas */
+                height: 520px; /* Ajuste de altura para pantallas medianas */
+            }
         }
         .flip-card-inner {
-            position: relative;
+            position: relative; /* Posición relativa para contener las caras */
             width: 100%;
             height: 100%;
             transition: transform 0.6s;
             transform-style: preserve-3d;
         }
         .flip-card.flipped .flip-card-inner {
-            transform: rotateY(180deg);
+            transform: rotateY(180deg); /* Gira la tarjeta al hacer hover o clic */
         }
         .flip-card-front, .flip-card-back {
-            position: absolute;
-            width: 100%;
-            height: 100%;
+            position: absolute; /* Mantener ambas caras en el mismo lugar */
+            width: 100%;   /* Ocupar todo el espacio del contenedor */
+            height: 100%; /* Ocupar todo el espacio del contenedor */
             -webkit-backface-visibility: hidden;
             backface-visibility: hidden;
-            border-radius: 1.5rem;
+            border-radius: 1.5rem; /* Bordes redondeados */
             overflow: hidden;
         }
         .flip-card-front {
@@ -149,6 +154,10 @@
         .animate-scroll-logos:hover {
             animation-play-state: paused;
         }
+        
+        /* Carousel fade */
+        .carousel-img { opacity: 0; }
+        .carousel-img.carousel-active { opacity: 1; }
     </style>
 </head>
 <body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 font-display">
@@ -239,105 +248,103 @@ function toggleMobileMenu() {
 </div>
 </section>
 <!-- Services: Estándar -->
-<section class="py-10 overflow-hidden" id="servicios">
-<div class="max-w-7xl mx-auto px-4 mb-12 flex justify-between items-end">
+<section class="py-10 overflow-hidden relative" id="servicios">
+<div class="max-w-7xl mx-auto px-4 mb-12">
 <h3 class="text-4xl font-black mt-2"><span class="text-black font-body">Classic</span> <span class="text-primary font-display">Wash</span></h3>
 </div>
-<div class="hidden md:flex gap-2">
-<button onclick="scrollEstandar(-1)" class="p-3 rounded-full border border-primary/20 text-primary hover:bg-primary hover:text-white transition-all">
+<div class="relative">
+<button onclick="scrollEstandar(-1)" class="hidden md:flex absolute left-4 top-1/2 -translate-y-1/2 z-10 p-3 rounded-full border border-primary/20 text-primary bg-white/80 backdrop-blur-sm hover:bg-primary hover:text-white transition-all shadow-lg">
 <span class="material-symbols-outlined">arrow_back</span>
 </button>
-<button onclick="scrollEstandar(1)" class="p-3 rounded-full border border-primary/20 text-primary hover:bg-primary hover:text-white transition-all">
+<button onclick="scrollEstandar(1)" class="hidden md:flex absolute right-4 top-1/2 -translate-y-1/2 z-10 p-3 rounded-full border border-primary/20 text-primary bg-white/80 backdrop-blur-sm hover:bg-primary hover:text-white transition-all shadow-lg">
 <span class="material-symbols-outlined">arrow_forward</span>
 </button>
-</div>
-</div>
 <div id="lavados-estandar" class="flex gap-6 overflow-x-auto px-4 sm:px-[calc((100vw-1280px)/2)] hide-scrollbar pb-8">
 <!-- Las tarjetas se cargan dinámicamente desde Google Sheets -->
 </div>
+</div>
 </section>
 <!-- Services: Premium -->
-<section class="py-20 bg-gradient-to-b from-black to-transparent text-white overflow-hidden">
-<div class="max-w-7xl mx-auto px-4 mb-12 flex justify-between items-end">
+<section class="py-16 bg-gradient-to-b from-black to-transparent text-white overflow-hidden">
+<div class="max-w-7xl mx-auto px-4 mb-12">
 <div>
-<span class="text-primary font-bold font-body tracking-widest uppercase text-sm">Experiencia Premium</span>
-<h3 class="text-4xl md:text-5xl font-black mt-4"><span class="text-white font-body">Lavados Full</span> <span class="text-primary font-display">Wash</span></h3>
+<h3 class="text-4xl md:text-5xl font-black mt-4"><span class="text-white font-body">Full</span> <span class="text-primary font-display">Wash</span></h3>
 <p class="text-slate-400 mt-4 max-w-2xl">Para quienes buscan la perfección. Tratamientos de estética vehicular de alto nivel.</p>
 </div>
-<div class="hidden md:flex gap-2">
-<button onclick="scrollPremium(-1)" class="p-3 rounded-full border border-white/20 text-white hover:bg-white hover:text-slate-900 transition-all">
+</div>
+<div class="relative">
+<button onclick="scrollPremium(-1)" class="hidden md:flex absolute left-4 top-1/2 -translate-y-1/2 z-10 p-3 rounded-full border border-white/20 text-white bg-black/50 backdrop-blur-sm hover:bg-white hover:text-slate-900 transition-all shadow-lg">
 <span class="material-symbols-outlined">arrow_back</span>
 </button>
-<button onclick="scrollPremium(1)" class="p-3 rounded-full border border-white/20 text-white hover:bg-white hover:text-slate-900 transition-all">
+<button onclick="scrollPremium(1)" class="hidden md:flex absolute right-4 top-1/2 -translate-y-1/2 z-10 p-3 rounded-full border border-white/20 text-white bg-black/50 backdrop-blur-sm hover:bg-white hover:text-slate-900 transition-all shadow-lg">
 <span class="material-symbols-outlined">arrow_forward</span>
 </button>
-</div>
-</div>
 <div id="lavados-premium" class="flex gap-6 overflow-x-auto px-4 sm:px-[calc((100vw-1280px)/2)] hide-scrollbar pb-8">
 <!-- Las tarjetas se cargan dinámicamente desde Google Sheets -->
 </div>
+</div>
 </section>
 <!-- Corporate Experience -->
-<section class="py-12 bg-background-light overflow-hidden" id="corporativo">
+<section class="py-8 md:py-12 bg-background-light overflow-hidden" id="corporativo">
 <div class="max-w-5xl mx-auto px-4">
-<span class="text-primary font-bold font-body tracking-widest uppercase text-sm mb-4 block">Servicios Corporativos</span>
-<h3 class="text-3xl md:text-5xl font-normal mb-6 leading-tight font-display text-primary">Soluciones de limpieza para flotas corporativas</h3>
-<p class="text-base md:text-lg text-black mb-10 font-body">Mantenemos la imagen de tu empresa impecable sin interrumpir la operación de tu negocio.</p>
-<div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-10">
-<div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-100 flex items-center gap-4">
-<div class="w-12 h-12 shrink-0 rounded-full bg-primary flex items-center justify-center">
+<span class="text-primary font-bold font-body tracking-widest uppercase text-sm mb-3 md:mb-4 block">Servicios Corporativos</span>
+<h3 class="text-3xl md:text-5xl font-normal mb-3 md:mb-6 leading-tight font-display text-primary">Soluciones de limpieza para flotas corporativas</h3>
+<p class="text-base md:text-lg text-black mb-6 md:mb-10 font-body">Mantenemos la imagen de tu empresa impecable sin interrumpir la operación de tu negocio.</p>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4 mb-6 md:mb-10">
+<div class="bg-white rounded-2xl p-4 md:p-6 shadow-sm border border-slate-100 flex items-center gap-4">
+<div class="w-11 h-11 md:w-12 md:h-12 shrink-0 rounded-full bg-primary flex items-center justify-center">
 <span class="material-symbols-outlined text-white text-2xl">settings</span>
 </div>
 <span class="font-body font-semibold text-black">Mantenimiento Profesional</span>
 </div>
-<div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-100 flex items-center gap-4">
-<div class="w-12 h-12 shrink-0 rounded-full bg-primary flex items-center justify-center">
+<div class="bg-white rounded-2xl p-4 md:p-6 shadow-sm border border-slate-100 flex items-center gap-4">
+<div class="w-11 h-11 md:w-12 md:h-12 shrink-0 rounded-full bg-primary flex items-center justify-center">
 <span class="material-symbols-outlined text-white text-2xl">savings</span>
 </div>
 <span class="font-body font-semibold text-black">Reducción de Costos</span>
 </div>
-<div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-100 flex items-center gap-4">
-<div class="w-12 h-12 shrink-0 rounded-full bg-primary flex items-center justify-center">
+<div class="bg-white rounded-2xl p-4 md:p-6 shadow-sm border border-slate-100 flex items-center gap-4">
+<div class="w-11 h-11 md:w-12 md:h-12 shrink-0 rounded-full bg-primary flex items-center justify-center">
 <span class="material-symbols-outlined text-white text-2xl">tune</span>
 </div>
 <span class="font-body font-semibold text-black">Soluciones Personalizadas</span>
 </div>
-<div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-100 flex items-center gap-4">
-<div class="w-12 h-12 shrink-0 rounded-full bg-primary flex items-center justify-center">
+<div class="bg-white rounded-2xl p-4 md:p-6 shadow-sm border border-slate-100 flex items-center gap-4">
+<div class="w-11 h-11 md:w-12 md:h-12 shrink-0 rounded-full bg-primary flex items-center justify-center">
 <span class="material-symbols-outlined text-white text-2xl">schedule</span>
 </div>
 <span class="font-body font-semibold text-black">Sin Interrupciones</span>
 </div>
 </div>
-<button onclick="consultarCorporativo()" class="bg-primary text-white px-10 py-5 rounded-full font-black text-lg shadow-xl hover:scale-105 transition-transform">
+<button onclick="consultarCorporativo()" class="w-full md:w-auto bg-primary text-white px-8 py-4 md:px-10 md:py-5 rounded-full black text-lg shadow-xl hover:scale-105 transition-transform">
                         Consultar servicio corporativo
                     </button>
 </div>
 </section>
 <!-- What We Do -->
-<section class="py-12 bg-slate-200 dark:bg-background-dark" id="que-hacemos">
-<div class="max-w-7xl mx-auto px-4">
-<div class="grid lg:grid-cols-2 gap-16 items-center">
-<div class="order-2 lg:order-1 relative rounded-3xl overflow-hidden shadow-2xl">
-<div class="flex animate-carousel">
-<img class="w-full shrink-0 h-[500px] object-cover" data-alt="High tech car wash machines in action" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBHSKvASOY_M7x0HG9-zR3SE7XYz8o2yLq29xvxCcxqxkzPoj-OjPs2ijrO0xN7WkfeXw0WfhsK3fG7V4IEPdDGj5ysJAbO4OxsvQokfPIzvRpZrlzlmGaTP6IjuFK0rupw3vjWJNyNdRYez_qIdOVFNx2rdun38VioyILKYDUB9lIRss8r_Q2hOirOoUpONmF20nduht0aG_HyQ09uGP37lwwStguG1lf4QETHsabVH56r1EptOG3Ck7F-9dUUpg_ZLV-cY6jhxog"/>
-</div>
-<div class="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2">
-<div class="w-2 h-2 rounded-full bg-white"></div>
-<div class="w-2 h-2 rounded-full bg-white/40"></div>
-<div class="w-2 h-2 rounded-full bg-white/40"></div>
+<section class="py-12 bg-slate-200 dark:bg-background-dark" id="que-hacemos">  <!-- Sección de "Qué hacemos" con diseño de tarjetas y flip cards -->
+<div class="max-w-7xl mx-auto px-4">   <!-- Sección de "Cómo trabajamos" con carrusel de imágenes y puntos indicadores -->
+<div class="grid lg:grid-cols-2 gap-16 items-center"> <!-- Contenedor principal con orden responsive -->
+<div class="order-2 lg:order-1 relative rounded-3xl overflow-hidden shadow-2xl h-[350px] md:h-[500px]"> <!-- Carrusel de imágenes y puntos indicadores -->
+<img class="absolute inset-0 w-full h-full object-cover transition-opacity duration-500 carousel-img carousel-active" alt="Imagen 1" src="static/imagen%201.jpeg"/> <!-- Primera imagen visible -->
+<img class="absolute inset-0 w-full h-full object-cover transition-opacity duration-500 carousel-img opacity-0" alt="Imagen 2" src="static/imagen%202.jpeg"/>
+<img class="absolute inset-0 w-full h-full object-cover transition-opacity duration-500 carousel-img opacity-0" alt="Imagen 3" src="static/imagen%203%20.jpeg"/>
+<div class="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2 z-10">
+<div class="w-2 h-2 rounded-full bg-white carousel-dot"></div>
+<div class="w-2 h-2 rounded-full bg-white/40 carousel-dot"></div>
+<div class="w-2 h-2 rounded-full bg-white/40 carousel-dot"></div>
 </div>
 </div>
 <div class="order-1 lg:order-2">
-<h3 class="text-3xl md:text-5xl font-normal mb-6 leading-tight font-display text-primary">Como trabajamos</h3>
+<h3 class="text-3xl md:text-5xl font-normal mb-6 leading-tight font-display text-primary">¿Por qué Wash Motors?</h3>
 <div class="space-y-6">
 <div class="flex gap-4">
 <div class="w-11 h-11 shrink-0 rounded-xl bg-primary flex items-center justify-center text-white">
 <span class="material-symbols-outlined text-2xl">home</span>
 </div>
 <div>
-<h4 class="text-base md:text-lg font-bold mb-1">Comodidad total</h4>
-<p class="text-sm text-slate-500 dark:text-slate-400">No necesitas moverte. Vamos a tu casa, oficina o gimnasio en el horario que prefieras.</p>
+<h4 class="text-base md:text-lg font-bold mb-1">Comodidad Total</h4>
+<p class="text-sm text-slate-500 dark:text-slate-400">Vamos hasta vos. Casa, oficina o donde estés.</p>
 </div>
 </div>
 <div class="flex gap-4">
@@ -345,8 +352,8 @@ function toggleMobileMenu() {
 <span class="material-symbols-outlined text-2xl">schedule</span>
 </div>
 <div>
-<h4 class="text-base md:text-lg font-bold mb-1">Puntualidad garantizada</h4>
-<p class="text-sm text-slate-500 dark:text-slate-400">Respetamos tu tiempo. Nuestro equipo llega exactamente cuando lo agendaste.</p>
+<h4 class="text-base md:text-lg font-bold mb-1">Puntualidad Garantizada</h4>
+<p class="text-sm text-slate-500 dark:text-slate-400">Llegamos en el horario acordado, porque tu tiempo vale.</p>
 </div>
 </div>
 <div class="flex gap-4">
@@ -355,7 +362,7 @@ function toggleMobileMenu() {
 </div>
 <div>
 <h4 class="text-base md:text-lg font-bold mb-1">Resultados profesionales</h4>
-<p class="text-sm text-slate-500 dark:text-slate-400">Personal capacitado y productos de alta gama para asegurar el mejor cuidado.</p>
+<p class="text-sm text-slate-500 dark:text-slate-400">Cuidamos cada detalle de tu vehículo.</p>
 </div>
 </div>
 </div>
@@ -524,6 +531,23 @@ function toggleMobileMenu() {
     </div>
 </div>
 
+<!-- Carousel de imágenes -->
+<script>
+(function() {
+    const imgs = document.querySelectorAll('.carousel-img');
+    const dots = document.querySelectorAll('.carousel-dot');
+    let current = 0;
+    setInterval(function() {
+        imgs[current].classList.remove('carousel-active');
+        dots[current].classList.remove('bg-white');
+        dots[current].classList.add('bg-white/40');
+        current = (current + 1) % imgs.length;
+        imgs[current].classList.add('carousel-active');
+        dots[current].classList.remove('bg-white/40');
+        dots[current].classList.add('bg-white');
+    }, 1500);
+})();
+</script>
 <!-- Script para cargar lavados desde Google Sheets -->
 <script src="lavados.js"></script>
 </body></html>

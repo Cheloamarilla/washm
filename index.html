@@ -30,8 +30,8 @@
                         "body": ["Helvetica", "Arial", "sans-serif"],
                         "support": ["Montserrat", "Helvetica", "Arial", "sans-serif"]
                     },
-                    borderRadius: {
-                        "DEFAULT": "1rem",
+                    borderRadius: { /*|| Tamaños de border-radius personalizados para mantener la consistencia con el manual de marca */
+                        "DEFAULT": "0.75rem",
                         "lg": "2rem",
                         "xl": "3rem",
                         "2xl": "3.5rem",
@@ -131,12 +131,12 @@
             height: 100%; /* Ocupar todo el espacio del contenedor */
             -webkit-backface-visibility: hidden;
             backface-visibility: hidden;
-            border-radius: 1.5rem; /* Bordes redondeados */
+            border-radius: 0.75rem; /* Bordes moderadamente redondeados */
             overflow: hidden;
         }
         .flip-card-front {
             background: white;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);/* Sombra sutil para dar profundidad */
         }
         .flip-card-back {
             background: #0066F6;
@@ -175,8 +175,8 @@
 <nav class="hidden md:flex items-center gap-8">
 <a class="text-sm font-body text-white/80 hover:text-white transition-colors" href="#">Inicio</a>
 <a class="text-sm font-body text-white/80 hover:text-white transition-colors" href="#servicios">Servicios</a>
-<a class="text-sm font-body text-white/80 hover:text-white transition-colors" href="#corporativo">Experiencia Corporativa</a>
-<a class="text-sm font-body text-white/80 hover:text-white transition-colors" href="#que-hacemos">Qué Hacemos</a>
+<!--<a class="text-sm font-body text-white/80 hover:text-white transition-colors" href="#corporativo">Experiencia Corporativa</a> -->
+<a class="text-sm font-body text-white/80 hover:text-white transition-colors" href="#que-hacemos">¿Por qué Wash Motors?</a>
 <a class="text-sm font-body text-white/80 hover:text-white transition-colors" href="#contacto">Contacto</a>
 </nav>
 <div class="flex items-center gap-4">
@@ -203,8 +203,8 @@
 </div>
 <a class="text-base font-body text-white/90 hover:text-white active:bg-white/20 rounded-xl px-3 py-2 transition-all" href="#" onclick="toggleMobileMenu()">Inicio</a>
 <a class="text-base font-body text-white/90 hover:text-white active:bg-white/20 rounded-xl px-3 py-2 transition-all" href="#servicios" onclick="toggleMobileMenu()">Servicios</a>
-<a class="text-base font-body text-white/90 hover:text-white active:bg-white/20 rounded-xl px-3 py-2 transition-all" href="#corporativo" onclick="toggleMobileMenu()">Experiencia Corporativa</a>
-<a class="text-base font-body text-white/90 hover:text-white active:bg-white/20 rounded-xl px-3 py-2 transition-all" href="#que-hacemos" onclick="toggleMobileMenu()">Qué Hacemos</a>
+<!--<a class="text-base font-body text-white/90 hover:text-white active:bg-white/20 rounded-xl px-3 py-2 transition-all" href="#corporativo" onclick="toggleMobileMenu()">Experiencia Corporativa</a>-->
+<a class="text-base font-body text-white/90 hover:text-white active:bg-white/20 rounded-xl px-3 py-2 transition-all" href="#que-hacemos" onclick="toggleMobileMenu()">¿Por qué Wash Motors?</a>
 <a class="text-base font-body text-white/90 hover:text-white active:bg-white/20 rounded-xl px-3 py-2 transition-all" href="#contacto" onclick="toggleMobileMenu()">Contacto</a>
 </div>
 </div>
@@ -230,10 +230,10 @@ function toggleMobileMenu() {
                     Llevamos el lavadero hasta vos. Tu vehículo limpio mientras vos seguis con tu día.
                 </p>
 <div class="flex flex-col sm:flex-row gap-4">
-<a href="#servicios" class="bg-primary text-white px-6 py-3 md:px-8 md:py-4 rounded-full font-bold text-base md:text-lg flex items-center justify-center gap-2 hover:scale-105 transition-transform">
-                        Agendar ahora
+<a href="#contacto" class="bg-primary text-white px-6 py-3 md:px-8 md:py-4 rounded-full fonttext-base md:text-lg flex items-center justify-center gap-2 hover:scale-105 transition-transform">
+                        Agendar Ahora
                     </a>
-<a href="#servicios" class="border-2 border-white/30 backdrop-blur-sm text-white px-6 py-3 md:px-8 md:py-4 rounded-full font-bold text-base md:text-lg hover:bg-white/10 transition-colors text-center">
+<a href="#servicios" class="border-2 border-white/30 backdrop-blur-sm text-white px-6 py-3 md:px-8 md:py-4 rounded-full font text-base md:text-lg hover:bg-white/10 transition-colors text-center">
                         Ver Servicios
                     </a>
 </div>
@@ -252,9 +252,9 @@ function toggleMobileMenu() {
 </div>
 </section>
 <!-- Services: Estándar -->
-<section class="py-10 overflow-hidden relative" id="servicios">
-<div class="max-w-7xl mx-auto px-4 mb-12">
-<h3 class="text-4xl font-black mt-2"><span class="text-black font-body">Classic</span> <span class="text-primary font-display">Wash</span></h3>
+<section class="py-10 overflow-hidden relative" id="servicios"> <!-- Sección de servicios con carrusel horizontal para móviles y tarjetas para escritorio -->
+<div class="max-w-7xl mx-auto px-4 mb-12"> <!-- Contenedor principal con padding horizontal y margen inferior -->
+<h3 class="text-4xl font-black mt-2"><span class="text-black font-body">Classic</span> <span class="text-primary font-display">Wash</span></h3> <!-- Título de la sección con jerarquía tipográfica -->
 </div>
 <div class="relative">
 <button onclick="scrollEstandar(-1)" class="hidden md:flex absolute left-4 top-1/2 -translate-y-1/2 z-10 p-3 rounded-full border border-primary/20 text-primary bg-white/80 backdrop-blur-sm hover:bg-primary hover:text-white transition-all shadow-lg">
@@ -263,7 +263,7 @@ function toggleMobileMenu() {
 <button onclick="scrollEstandar(1)" class="hidden md:flex absolute right-4 top-1/2 -translate-y-1/2 z-10 p-3 rounded-full border border-primary/20 text-primary bg-white/80 backdrop-blur-sm hover:bg-primary hover:text-white transition-all shadow-lg">
 <span class="material-symbols-outlined">arrow_forward</span>
 </button>
-<div id="lavados-estandar" class="flex gap-6 overflow-x-auto px-4 sm:px-[calc((100vw-1280px)/2)] hide-scrollbar pb-8">
+<div id="lavados-estandar" class="flex gap-6 overflow-x-auto px-4 sm:px-[calc((100vw-1280px)/2)] hide-scrollbar pb-8"> <!-- Contenedor del carrusel con scroll horizontal y ocultación de scrollbar -->
 <!-- Las tarjetas se cargan dinámicamente desde Google Sheets -->
 </div>
 </div>
@@ -289,7 +289,7 @@ function toggleMobileMenu() {
 </div>
 </section>
 <!-- Corporate Experience -->
-<section class="py-8 md:py-12 bg-background-light overflow-hidden" id="corporativo">
+<!--<section class="py-8 md:py-12 bg-background-light overflow-hidden" id="corporativo">
 <div class="max-w-5xl mx-auto px-4">
 <span class="text-primary font-bold font-body tracking-widest uppercase text-sm mb-3 md:mb-4 block">Servicios Corporativos</span>
 <h3 class="text-3xl md:text-5xl font-normal mb-3 md:mb-6 leading-tight font-display text-primary">Soluciones de limpieza para flotas corporativas</h3>
@@ -324,7 +324,7 @@ function toggleMobileMenu() {
                         Consultar servicio corporativo
                     </button>
 </div>
-</section>
+</section> -->
 <!-- What We Do -->
 <section class="py-12 bg-slate-200 dark:bg-background-dark" id="que-hacemos">  <!-- Sección de "Qué hacemos" con diseño de tarjetas y flip cards -->
 <div class="max-w-7xl mx-auto px-4">   <!-- Sección de "Cómo trabajamos" con carrusel de imágenes y puntos indicadores -->
@@ -340,7 +340,7 @@ function toggleMobileMenu() {
 </div>
 </div>
 <div class="order-1 lg:order-2">
-<h3 class="text-3xl md:text-5xl font-normal mb-6 leading-tight font-display text-primary">Por qué Wash Motors?</h3>
+<h3 class="text-3xl md:text-5xl font-bold mb-6 leading-tight font-display text-primary"><span style="font-family: 'Anja Eliane', 'Montserrat', sans-serif;">¿</span>Por qué Wash Motors?</h3>
 <div class="space-y-6">
 <div class="flex gap-4">
 <div class="w-11 h-11 shrink-0 rounded-xl bg-primary flex items-center justify-center text-white">
@@ -389,6 +389,10 @@ function toggleMobileMenu() {
 <svg class="w-5 h-5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="ig" x1="0%" y1="100%" x2="100%" y2="0%"><stop offset="0%" stop-color="#FFDC80"/><stop offset="25%" stop-color="#F77737"/><stop offset="50%" stop-color="#E1306C"/><stop offset="75%" stop-color="#C13584"/><stop offset="100%" stop-color="#833AB4"/></linearGradient></defs><path fill="url(#ig)" d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
 <span class="text-base md:text-lg text-slate-500 dark:text-slate-400 font-body font-normal" style="font-family: 'Montserrat', 'Helvetica', Arial, sans-serif; font-weight: 400;">@washmotors.py</span>
 </a>
+<a href="https://www.facebook.com/washmotors.py" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 mt-3 mx-auto hover:scale-105 transition-transform">
+<svg class="w-5 h-5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill="#1877F2" d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+<span class="text-base md:text-lg text-slate-500 dark:text-slate-400 font-body font-normal" style="font-family: 'Montserrat', 'Helvetica', Arial, sans-serif; font-weight: 400;">@washmotors.py</span>
+</a>
 </div>
 </div>
 </section>
@@ -401,28 +405,29 @@ function toggleMobileMenu() {
 <span class="text-xl font-black tracking-tighter text-white">WASH MOTORS</span>
 </div>
 <p class="text-slate-400 max-w-sm mb-8">
-                        Líderes en detallado automotriz móvil. Calidad premium donde sea que estés. Transformamos la forma de lavar tu vehículo.
+                        El lavadero que va hasta vos.
+Comodidad, puntualidad y un cuidado real para tu vehículo.
                     </p>
 </div>
 <div>
-<h5 class="font-bold mb-6 text-white">Enlaces Rápidos</h5>
-<ul class="space-y-4 text-slate-400 text-sm">
+<h5 class="font-normal mb-6 text-white">Enlaces Rápidos</h5>
+<ul class="space-y-4 text-slate-400 text-sm font-normal">
 <li><a class="hover:text-white transition-colors" href="#inicio">Inicio</a></li>
 <li><a class="hover:text-white transition-colors" href="#servicios">Servicios</a></li>
-<li><a class="hover:text-white transition-colors" href="#corporativo">Experiencia Corporativa</a></li>
-<li><a class="hover:text-white transition-colors" href="#que-hacemos">Qué Hacemos</a></li>
+<!--<li><a class="hover:text-white transition-colors" href="#corporativo">Experiencia Corporativa</a></li> -->
+<li><a class="hover:text-white transition-colors" href="#que-hacemos">Por qué Wash Motors</a></li>
 </ul>
 </div>
 <div>
-<h5 class="font-bold mb-6 text-white">Contacto</h5>
-<ul class="space-y-4 text-slate-400 text-sm">
+<h5 class="font-normal mb-6 text-white">Contacto</h5>
+<ul class="space-y-4 text-slate-400 text-sm font-normal">
 <li class="flex items-center gap-2">
 <span class="material-symbols-outlined text-primary text-sm">mail</span>
-                            washmotors.py@gmail.com
+                            <a href="mailto:washmotors.py@gmail.com?subject=Consulta%20-%20Wash%20Motors&amp;body=Hola%20Wash%20Motors%2C%0A%0AMe%20gustar%C3%ADa%20consultar%20sobre%20sus%20servicios%20de%20lavado.%0A%0AGracias." class="hover:text-white transition-colors">washmotors.py@gmail.com</a>
                         </li>
 <li class="flex items-center gap-2">
 <span class="material-symbols-outlined text-primary text-sm">phone</span>
-                            +595 973 791 481
+                            <a href="https://wa.me/595973791484" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">+595 973 791 484</a>
                         </li>
 <li class="flex items-center gap-2">
 <span class="material-symbols-outlined text-primary text-sm">location_on</span>
@@ -432,7 +437,7 @@ function toggleMobileMenu() {
 </div>
 </div>
 <div class="pt-8 border-t border-white/10 text-center text-sm text-slate-500">
-                © 2024 WASH MOTORS. Todos los derechos reservados.
+                © 2026 WASH MOTORS. Todos los derechos reservados.
             </div></div>
 </footer>
 <!-- Mobile Fixed Bottom Nav -->

@@ -121,7 +121,7 @@ function createEstandarCard(lavado, index) {
     const isDestacado = index === 2; // Wash 4 destacado
     const destacadoBorder = isDestacado ? 'border-2 border-primary' : '';
     const destacadoBadge = isDestacado ? `
-        <div class="absolute top-4 left-4 bg-primary text-white px-3 py-1 rounded-full font-bold text-xs uppercase">El más popular</div>
+        <div class="absolute top-4 left-4 bg-primary text-white px-3 py-1 rounded-full font-bold text-xs uppercase">Más popular</div>
     ` : '';
     const buttonClass = isDestacado 
         ? 'bg-primary text-white hover:opacity-90' 
@@ -141,22 +141,29 @@ function createEstandarCard(lavado, index) {
         <div class="flip-card" id="${cardId}">
             <div class="flip-card-inner">
                 <!-- Cara Frontal -->
-                <div class="flip-card-front bg-white flex flex-col rounded-3xl ${destacadoBorder} shadow-xl shadow-primary/5">
-                    <div class="h-48 relative overflow-hidden rounded-t-3xl flex-shrink-0">
+                <div class="flip-card-front bg-white flex flex-col rounded-xl ${destacadoBorder} shadow-xl shadow-primary/5">
+                    <div class="h-48 relative overflow-hidden rounded-t-xl flex-shrink-0">
                         <img class="w-full h-full object-cover ${objectPosition}" 
                              src="${lavado.imagen}" 
                              alt="${lavado.nombre}"/>
                         <div class="absolute inset-0 bg-black/30"></div>
                         ${destacadoBadge}
                         ${lavado.precio ? `
-                            <div class="absolute top-4 right-4 bg-primary text-white px-3 py-1 rounded-full font-bold text-sm">
+                            <div class="absolute top-8 right-3 bg-primary text-white px-3 py-1 rounded-full font-bold text-sm">
                                 ${lavado.precio}
                             </div>
                         ` : ''}
                     </div>
                     <div class="p-5 flex flex-col flex-1">
                         <h4 class="text-xl font-bold mb-2 font-display text-primary">${lavado.nombre}</h4>
-                        <p class="text-gray text-sm mb-3">${lavado.descripcion || 'Servicio de lavado profesional.'}</p>
+                        <p class="text-slate-800 text-sm mb-3">${(() => {
+                            const desc = lavado.descripcion || 'Servicio de lavado profesional.';
+                            const dotIndex = desc.indexOf('.');
+                            if (dotIndex !== -1) {
+                                return `<strong>${desc.substring(0, dotIndex + 1)}</strong>${desc.substring(dotIndex + 1)}`;
+                            }
+                            return desc;
+                        })()}</p>
                         ${lavado.demora ? `
                             <p class="text-xs text-gray mb-2 flex items-center gap-1">
                                 <span class="material-symbols-outlined text-sm">schedule</span>
@@ -173,7 +180,7 @@ function createEstandarCard(lavado, index) {
                     </div>
                 </div>
                 <!-- Cara Trasera -->
-                <div class="flip-card-back p-5 flex flex-col rounded-3xl shadow-xl">
+                <div class="flip-card-back p-5 pt-8 flex flex-col rounded-xl shadow-xl">
                     <h4 class="text-xl font-bold mb-3 text-white font-display">${lavado.nombre}</h4>
                     <p class="text-white/80 text-xs uppercase tracking-wider mb-2">Incluye:</p>
                     <ul class="text-sm space-y-1.5 flex-1 overflow-y-auto mb-4 text-white/90">
@@ -230,7 +237,7 @@ function createPremiumCard(lavado, index) {
             <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-black/40 premium-overlay transition-all duration-500" id="${cardId}-overlay"></div>
             
             <!-- Precio en esquina superior derecha (solo visible en frontal) -->
-            ${lavado.precio ? `<div class="absolute top-4 right-4 sm:top-6 sm:right-6 bg-white/20 backdrop-blur-sm text-white px-3 py-1.5 sm:px-4 sm:py-2 rounded-full text-xs sm:text-sm font-bold border border-white/30 z-10 transition-all duration-500 premium-price" id="${cardId}-price">${lavado.precio}</div>` : ''}
+            ${lavado.precio ? `<div class="absolute top-4 right-4 sm:top-6 sm:right-6 bg-black/60 backdrop-blur-sm text-white px-3 py-1.5 sm:px-4 sm:py-2 rounded-full text-xs sm:text-sm font-bold border border-white/20 z-10 transition-all duration-500 premium-price" id="${cardId}-price">${lavado.precio}</div>` : ''}
             
             <!-- Botón volver en esquina superior derecha (solo visible en detalle) -->
             <button onclick="togglePremiumDetail('${cardId}')" class="absolute top-4 right-4 sm:top-6 sm:right-6 bg-white/20 backdrop-blur-sm text-white w-10 h-10 rounded-full font-bold border border-white/30 z-10 transition-all duration-500 opacity-0 pointer-events-none premium-back flex items-center justify-center hover:bg-white hover:text-black" id="${cardId}-back">
@@ -370,7 +377,7 @@ function showLoading() {
     const premiumContainer = document.getElementById('lavados-premium');
     
     const loadingHTML = `
-        <div class="min-w-[320px] bg-white dark:bg-slate-900 rounded-3xl overflow-hidden shadow-xl shadow-primary/5 animate-pulse">
+        <div class="min-w-[320px] bg-white dark:bg-slate-900 rounded-xl overflow-hidden shadow-xl shadow-primary/5 animate-pulse">
             <div class="h-56 bg-slate-200 dark:bg-slate-700"></div>
             <div class="p-8">
                 <div class="h-6 bg-slate-200 dark:bg-slate-700 rounded mb-4 w-3/4"></div>
@@ -424,7 +431,7 @@ let agendamiento = {
 };
 
 // Número de WhatsApp
-const WHATSAPP_NUMBER = '595973791481'; // Formato: código país + número sin espacios ni signos
+const WHATSAPP_NUMBER = '595973791484'; // Formato: código país + número sin espacios ni signos
 
 /**
  * Consulta servicio corporativo via WhatsApp

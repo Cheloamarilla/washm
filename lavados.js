@@ -156,9 +156,9 @@ function createEstandarCard(lavado, index) {
                     </div>
                     <div class="p-5 flex flex-col flex-1">
                         <h4 class="text-xl font-bold mb-2 font-display text-primary">${lavado.nombre}</h4>
-                        <p class="text-gray text-sm mb-3 flex-1">${lavado.descripcion || 'Servicio de lavado profesional.'}</p>
+                        <p class="text-gray text-sm mb-3">${lavado.descripcion || 'Servicio de lavado profesional.'}</p>
                         ${lavado.demora ? `
-                            <p class="text-xs text-gray mb-4 flex items-center gap-1">
+                            <p class="text-xs text-gray mb-2 flex items-center gap-1">
                                 <span class="material-symbols-outlined text-sm">schedule</span>
                                 ${lavado.demora}
                             </p>
@@ -227,7 +227,7 @@ function createPremiumCard(lavado, index) {
                  id="${cardId}-img"
                  src="${lavado.imagen}" 
                  alt="${lavado.nombre}"/>
-            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/20 premium-overlay transition-all duration-500" id="${cardId}-overlay"></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-black/40 premium-overlay transition-all duration-500" id="${cardId}-overlay"></div>
             
             <!-- Precio en esquina superior derecha (solo visible en frontal) -->
             ${lavado.precio ? `<div class="absolute top-4 right-4 sm:top-6 sm:right-6 bg-white/20 backdrop-blur-sm text-white px-3 py-1.5 sm:px-4 sm:py-2 rounded-full text-xs sm:text-sm font-bold border border-white/30 z-10 transition-all duration-500 premium-price" id="${cardId}-price">${lavado.precio}</div>` : ''}
@@ -285,7 +285,7 @@ function togglePremiumDetail(cardId) {
         detail.classList.add('opacity-100');
         front.classList.add('opacity-0', 'pointer-events-none');
         // Oscurecer más la imagen
-        overlay.classList.remove('from-black/80', 'via-black/40', 'to-black/20');
+        overlay.classList.remove('from-black/80', 'via-black/50', 'to-black/40');
         overlay.classList.add('from-black/90', 'via-black/80', 'to-black/70');
         img.classList.add('scale-110', 'blur-sm');
         // Ocultar precio, mostrar botón volver
@@ -303,7 +303,7 @@ function togglePremiumDetail(cardId) {
         detail.classList.remove('opacity-100');
         front.classList.remove('opacity-0', 'pointer-events-none');
         // Restaurar imagen
-        overlay.classList.add('from-black/80', 'via-black/40', 'to-black/20');
+        overlay.classList.add('from-black/80', 'via-black/50', 'to-black/40');
         overlay.classList.remove('from-black/90', 'via-black/80', 'to-black/70');
         img.classList.remove('scale-110', 'blur-sm');
         // Mostrar precio, ocultar botón volver
@@ -423,8 +423,8 @@ let agendamiento = {
     horario: ''
 };
 
-// Número de WhatsApp (cambiar por el número real)
-const WHATSAPP_NUMBER = '595983140313'; // Formato: código país + número sin espacios ni signos
+// Número de WhatsApp
+const WHATSAPP_NUMBER = '595973791481'; // Formato: código país + número sin espacios ni signos
 
 /**
  * Consulta servicio corporativo via WhatsApp

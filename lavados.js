@@ -431,7 +431,7 @@ let agendamiento = {
 };
 
 // Número de WhatsApp
-const WHATSAPP_NUMBER = '595973791484'; // Formato: código país + número sin espacios ni signos
+const WHATSAPP_NUMBER = '595973791481'; // Formato: código país + número sin espacios ni signos
 
 /**
  * Consulta servicio corporativo via WhatsApp

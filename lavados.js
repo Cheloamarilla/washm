@@ -237,7 +237,7 @@ function createPremiumCard(lavado, index) {
             <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-black/40 premium-overlay transition-all duration-500" id="${cardId}-overlay"></div>
             
             <!-- Precio en esquina superior derecha (solo visible en frontal) -->
-            ${lavado.precio ? `<div class="absolute top-4 right-4 sm:top-6 sm:right-6 bg-black/60 backdrop-blur-sm text-white px-3 py-1.5 sm:px-4 sm:py-2 rounded-full text-xs sm:text-sm font-bold border border-white/20 z-10 transition-all duration-500 premium-price" id="${cardId}-price">${lavado.precio}</div>` : ''}
+            ${lavado.precio ? `<div class="absolute top-7 right-5 sm:top-9 sm:right-8 bg-black/60 backdrop-blur-sm text-white px-3 py-1.5 sm:px-4 sm:py-2 rounded-full text-xs sm:text-sm font-bold border border-white/20 z-10 transition-all duration-500 premium-price" id="${cardId}-price">${lavado.precio}</div>` : ''}
             
             <!-- Botón volver en esquina superior derecha (solo visible en detalle) -->
             <button onclick="togglePremiumDetail('${cardId}')" class="absolute top-4 right-4 sm:top-6 sm:right-6 bg-white/20 backdrop-blur-sm text-white w-10 h-10 rounded-full font-bold border border-white/30 z-10 transition-all duration-500 opacity-0 pointer-events-none premium-back flex items-center justify-center hover:bg-white hover:text-black" id="${cardId}-back">
@@ -247,7 +247,14 @@ function createPremiumCard(lavado, index) {
             <!-- Contenido frontal -->
             <div class="absolute bottom-0 left-0 p-6 sm:p-8 w-full premium-front transition-all duration-500" id="${cardId}-front">
                 <h4 class="text-2xl sm:text-3xl font-black text-white font-display mb-2">${nombreConWashAzul}</h4>
-                <p class="text-white/80 mb-4 font-body text-sm sm:text-base">${lavado.descripcion || 'Tratamiento premium para tu vehículo.'}</p>
+                <p class="text-white/80 mb-4 font-body text-sm sm:text-base">${(() => {
+                            const desc = lavado.descripcion || 'Tratamiento premium para tu vehículo.';
+                            const dotIndex = desc.indexOf('.');
+                            if (dotIndex !== -1) {
+                                return `<strong class="text-white">${desc.substring(0, dotIndex + 1)}</strong>${desc.substring(dotIndex + 1)}`;
+                            }
+                            return desc;
+                        })()}</p>
                 ${lavado.demora ? `
                     <p class="text-xs text-white/60 mb-4 flex items-center gap-1 font-body">
                         <span class="material-symbols-outlined text-sm">schedule</span>
